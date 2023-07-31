@@ -1,0 +1,39 @@
+.catalog
+          each value in data
+            .section.section--more
+              .section__header
+                .section__header--wrapper
+                  img.section__icon(src="images/" + value.image alt=''+value.name)
+                  .section__info
+                    .section__info--wrapper
+                      p.section__quantity #{value.quantity.toLocaleString('ru-RU')} товаров
+                      p.section__title !{value.name}
+                span <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7.70703 14.707L12 10.414L16.293 14.707L17.707 13.293L12 7.58603L6.29303 13.293L7.70703 14.707Z" fill="#637381"/>
+                    </svg>
+
+              ul.section__list
+                //- Первые пять элементов
+                each item in value.items.slice(0, 5)
+                  .section__item--wrapper
+                  a.section__item= item
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.5 9.5L8.5 6L4.5 2.5V9.5Z" fill="#637381"/>
+                    </svg>
+                //- Вторые пять элементов
+                each item in value.items.slice(5, 10)
+                  a.section__item.section__item--1more.section__item--invisible= item
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.5 9.5L8.5 6L4.5 2.5V9.5Z" fill="#637381"/>
+                    </svg>
+                //- Остальные элементы
+                each item in value.items.slice(10)
+                  a.section__item.section__item--2more.section__item--invisible= item
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.5 9.5L8.5 6L4.5 2.5V9.5Z" fill="#637381"/>
+                    </svg>
+
+              button.section__more Показать ещё
+                span <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M16.293 9.29297L12 13.586L7.70697 9.29297L6.29297 10.707L12 16.414L17.707 10.707L16.293 9.29297Z" fill="#1890FF"/>
+                      </svg>

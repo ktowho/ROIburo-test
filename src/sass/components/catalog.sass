@@ -1,0 +1,189 @@
+.catalog
+  display: grid
+  grid-template-columns: repeat(2, 1fr)
+
+.section
+  display: none
+  padding: 32px
+  margin-bottom: 3px
+  width: 640px
+
+  &-visible
+    display: inline-block
+
+  &__header
+    display: flex
+    margin-bottom: 16px
+    &:visited
+      color: $common-black
+
+    &--wrapper
+          display: flex
+          gap: 13px
+
+    span
+      display: none
+
+  &__icon
+    display: inline-block
+    overflow: hidden
+    height: 80px
+    width: 80px
+    margin-right: 8px
+
+  &__info
+    display: flex
+    flex-grow: 1
+    flex-direction: column
+    justify-content: center
+    align-items: flex-start
+    gap: 4px
+
+    &--wrapper
+      display: flex
+      flex-direction: column
+      gap: 4px
+
+    span
+      display: none
+
+  &__quantity
+    font-size: 13px
+    font-weight: 300
+    line-height: 140%
+    color: $grey-600
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+
+  &__title
+    font-size: 19px
+    font-style: normal
+    font-weight: 500
+    line-height: 140%
+
+  &__list
+    display: grid
+    grid-template-columns: repeat(2, 1fr)
+    column-gap: 16px
+    row-gap: 12px
+
+  &__item
+    margin-bottom: 12px
+    width: 280px
+    font-size: 14px
+    font-weight: 500
+    line-height: 24px
+
+    svg
+      display: none
+
+    // скрытые элеменеты
+    &--invisible
+      display: none !important
+
+  &__more
+    display: flex
+    gap: 4px
+    margin-top: 12px
+    margin-bottom: 13px
+    color: $info-color
+    background-color: transparent
+    align-items: center
+    font-size: 14px
+    font-weight: 500
+    line-height: 24px
+
+
+    span
+      pointer-events: none
+      display: inline-block
+      width: 24px
+      height: 24px
+      background-image: url(./images/svg/arrow1.svg)
+
+    &--opened
+      span
+        transform: rotate(180deg)
+
+@media screen and (max-width: 1400px)
+  .section
+    padding: 24px
+    margin-bottom: 6px
+    width: 352px
+
+    &__header
+      display: inline-block
+      width: 304px
+
+      &--wrapper
+        flex-direction: row-reverse
+
+    &__icon
+      align-self: center
+      height: 64px
+      width: 64px
+      margin-right: 0
+
+    &__title
+      font-size: 23px
+      max-width: 240px
+
+    &__item
+      margin-bottom: 16px
+
+    &__more
+      margin-top: 10px
+      margin-bottom: 10px
+
+@media screen and (max-width: 767px)
+  .section
+    padding: 0px 16px 0 16px
+    width: 100vw
+    margin-bottom: 6px
+
+    &__header
+      display: flex
+      width: $sm-width
+      margin-bottom: 29px
+      flex-direction: row
+      align-items: center
+      justify-content: space-between
+      cursor: pointer
+      margin-bottom: 27px
+
+      span
+        transform: rotate(180deg)
+
+      &--wrapper
+        flex-direction: row
+        gap: 13px
+
+      span
+        display: inline-block
+        margin-top: 5px
+
+    &__info
+      display: flex
+      max-width: 232px
+
+      &--wrapper
+        gap: 0
+
+      span
+       display: inline-block
+
+    &__title
+      padding-top: 3px
+      font-size: 16px
+
+    &__item
+      width: $sm-width
+      margin-bottom: 24px
+      display: flex
+      justify-content: space-between
+      align-items: center
+
+      svg
+        display: inline-block
+
+    &__more
+      display: none !important
